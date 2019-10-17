@@ -1,7 +1,7 @@
 $script:ParentPath = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 
 $script:ADGroups = Import-PowerShellDataFile "$script:ParentPath\Tests\Data\ADGroups.psd1"
-$script:TestedScript = "$script:ParentPath\Scripts\NestedGroupMembership.ps1"
+$script:TestedScript = "$script:ParentPath\ActiveDirectory\CircularNestedGroups\NestedGroupMembership.ps1"
 $Mock2019Groups = $script:ADGroups.Default2019
 $Mock2019GroupsDN = $Mock2019Groups | Where-Object { $_.DistinguishedName -contains 'CN=Builtin,DC=corp,DC=contoso,DC=com' }
 $Mock2019GroupsDomainUsers = $Mock2019Groups | Where-Object { $_.Name -eq 'Domain Users' }
